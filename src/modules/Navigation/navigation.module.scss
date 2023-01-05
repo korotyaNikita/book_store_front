@@ -1,0 +1,66 @@
+@import "./../../variables.module.scss";
+@import "./../../style.module.scss";
+
+.nav {
+    list-style-type: none;
+    list-style-type: none;
+    margin: 0;
+    width: 80%;
+    padding: 15px;
+
+    &__item {
+        display: inline;
+        font-family: "Fira Sans", sans-serif;
+        font-size: 17px;
+    }
+
+    & a {
+        color: $lightColor;
+        text-decoration: none;
+        padding: 14px;
+        &:hover {
+          background-color: $darkColor;
+        }
+    }
+}
+
+.controls {
+    margin: 0;
+    padding: 15px;
+    width: 20%;
+    display: flex;
+
+    &__search {
+        width: 192px;
+        position: relative;
+    }
+
+    &__input {
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 20px;
+        background: #f2f3f5;
+        border-radius: 8px;
+        padding: 0 10px 0 38px;
+        outline: none;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border: 1px solid rgba(0,0,0,0);
+    }
+
+    &__login {
+        outline: none;
+        border: 1px solid rgba(0,0,0,0);
+        border-radius: 8px;
+        padding: 0 11px 0 11px;
+        margin-left: 5px;
+        background: $darkColor;
+        cursor: pointer;
+        color: $lightColor;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 20px;
+        letter-spacing: .1px;
+    }
+}

@@ -1,0 +1,19 @@
+@import "./variables.module.scss";
+
+#container {
+    background: rgb(243, 238, 238);
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #333;
+    width: 100%;
+    display: flex;
+}
+
+.content {
+    text-align: center;
+}
