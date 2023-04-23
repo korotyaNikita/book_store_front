@@ -17,6 +17,9 @@ const Navbar = () => {
             <div className={classes.nav__item}>
                 <Link to="/library">Бібліотека</Link>
             </div>
+            <div className={classes.nav__item}>
+                <Link to="/admin">Панель адміна</Link>
+            </div>
         </div>
     );
 }

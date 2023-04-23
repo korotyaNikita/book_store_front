@@ -1,0 +1,9 @@
+.content_wrapper {
+    margin: 0;
+    width: 80%;
+
+    & h1 {
+        margin: 30px 40px;
+        font-size: 30px;
+    }
+}
