@@ -6,7 +6,7 @@ const AdminNavbar = () => {
     return (
         <div className={classes.nav}>
             <div className={classes.nav__item}>
-                <Link to="/admin/roles">Ролі</Link>
+                <Link to="/admin/roles?page=1">Ролі</Link>
             </div>
             <div className={classes.nav__item}>
                 <Link to="#">Користувачі</Link>

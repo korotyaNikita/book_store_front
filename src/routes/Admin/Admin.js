@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./../../style.module.scss"
 import Navbar from './../../modules/Navigation/Navbar';
 import Control from "../../modules/Navigation/Control";
-import AdminNavbar from "../../modules/Content/Admin/AdminNavbar";
+import AdminNavbar from "./modules/Navigation/AdminNavbar";
 import { Outlet } from "react-router-dom";
 
 const Admin = () => {
