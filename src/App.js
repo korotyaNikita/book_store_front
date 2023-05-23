@@ -13,6 +13,10 @@ import RolesEdit from './routes/Admin/Roles/Edit/RolesEdit';
 import ContextData from './context/Data/ContextData';
 import StateData from './context/Data/StateData';
 import ReducerData from './context/Data/ReduserData';
+import Users from './routes/Admin/Users/Users';
+import UsersShow from './routes/Admin/Users/Show/UsersShow';
+import UsersCreate from './routes/Admin/Users/Create/UsersCreate';
+import UsersEdit from './routes/Admin/Users/Edit/UsersEdit';
 
 function App() {  
   const [stateData, dispatchData] = React.useReducer(ReducerData, StateData)
@@ -28,6 +32,10 @@ function App() {
               <Route path='roles/create' element={<RolesCreate />} />
               <Route path='roles/:id' element={<RolesShow />} />
               <Route path='roles/:id/edit' element={<RolesEdit />} />
+              <Route path='users' element={<Users />} />
+              <Route path='users/create' element={<UsersCreate />} />
+              <Route path='users/:id' element={<UsersShow />} />
+              <Route path='users/:id/edit' element={<UsersEdit />} />
             </Route>
         </Routes>
       </ContextData.Provider>

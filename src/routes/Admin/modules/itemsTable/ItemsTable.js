@@ -25,7 +25,7 @@ const ItemsTable = ({currentItems, from, currentPage, deleteItem}) => {
                         return (
                             <tr key={index}>
                                 <td>{elem.id}</td>
-                                <td><Link to={`${elem.id}`} state={{ from: from }}>{elem.title}</Link></td>
+                                <td><Link to={`${elem.id}`} >{elem.title}</Link></td>
                                 <td><button onClick={() => submitRoles(elem.id)}>X</button></td>
                             </tr>
                         )

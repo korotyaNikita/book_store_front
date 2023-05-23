@@ -1,9 +1,6 @@
 import NET from "../network";
 
-const itemsSubmit = async (url, inputValue, method, navigate, navigateUrl, navigateState) => {
-    const data = {
-        title: inputValue,
-    }
+const itemsSubmit = async (url, data, method, navigate, navigateUrl) => {
 
     await fetch(`${NET.APP_URL}${url}`, {
         method: method,
@@ -14,16 +11,7 @@ const itemsSubmit = async (url, inputValue, method, navigate, navigateUrl, navig
     }).then(async data => {
         if (data.status === 200) {
             const response = await data.json()
-            if (method !== 'DELETE') {
-                navigate(`${navigateUrl}/${response.dataID.id}`, {
-                    state: {
-                        from: navigateState
-                    }
-                })
-            }
-            else {
-                navigate(`${navigateUrl}`)
-            }
+            navigate(`${navigateUrl}${method !== 'DELETE' ? `/${response.dataID.id}` : ''}`)
         }
     }).catch((e) => {
         console.info(e);

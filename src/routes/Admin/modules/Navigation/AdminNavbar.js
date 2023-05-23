@@ -9,7 +9,7 @@ const AdminNavbar = () => {
                 <Link to="/admin/roles?page=1">Ролі</Link>
             </div>
             <div className={classes.nav__item}>
-                <Link to="#">Користувачі</Link>
+                <Link to="/admin/users?page=1">Користувачі</Link>
             </div>
         </div>
         

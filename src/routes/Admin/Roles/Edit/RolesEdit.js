@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useState } from "react"
 import ItemInput from "../../modules/itemInput/ItemInput";
 import itemsSubmit from "../../../../actions/itemsSubmit";
@@ -7,12 +7,14 @@ import itemsSubmit from "../../../../actions/itemsSubmit";
 const RolesEdit = () => {
     const navigate = useNavigate();
     const [inputValue, dispatchValue] = useState('')
-    const location = useLocation()
-    const { from, itemName } = location.state
     const params = useParams()
 
+    const data = {
+        title: inputValue
+    }
+
     const submitRoles = () => {
-        itemsSubmit(`/admin/${from}/${params.id}`, inputValue, 'PATCH', navigate, `/admin/${from}`, from)
+        itemsSubmit(`/admin/roles/${params.id}`, data, 'PATCH', navigate, `/admin/roles`)
     }
 
     const setInputValue = (newInputValue) => {
@@ -21,8 +23,7 @@ const RolesEdit = () => {
 
     return (
         <div>
-            <h1>{itemName}</h1>
-            <ItemInput inputValue={inputValue} setInputValue={setInputValue} />
+            <ItemInput inputValue={inputValue} setInputValue={setInputValue} placeholder="Введіть назву ролі" type="text" id="title" labelName="Назва ролі"/>
             <button onClick={submitRoles}>Підтвердити</button>
         </div>
     )

@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useContext } from "react";
-import ContextData from "../../../context/Data/ContextData";
-import { Link, useSearchParams } from "react-router-dom";
+import React, {useContext, useState, useEffect} from "react"
+import ContextData from "../../../context/Data/ContextData"
+import { useSearchParams, Link } from "react-router-dom"
+import itemsFetch from "../../../actions/ItemsFetch"
+import ItemsTable from "../modules/itemsTable/ItemsTable"
+import Pagination from "../../../modules/Pagination/Pagination"
 import classes from "../admin.scss"
-import Pagination from "../../../modules/Pagination/Pagination";
-import itemsFetch from './../../../actions/ItemsFetch';
-import ItemsTable from "../modules/itemsTable/ItemsTable";
 
-const Roles = () => {
+const Users = () => {
     const {stateData, dispatchData} = useContext(ContextData)
     const item = stateData.items
     const [itemsPerPage, setItemsPerPage] = useState(8)
@@ -16,7 +16,7 @@ const Roles = () => {
     const firstItemIndex = lastItemIndex - itemsPerPage
 
     useEffect(() => {
-        itemsFetch("/admin/roles", dispatchData, "FETCH_ITEMS")
+        itemsFetch("/admin/users", dispatchData, "FETCH_ITEMS")
     }, [])
     const currentItems = item.slice(firstItemIndex, lastItemIndex)
 
@@ -25,20 +25,20 @@ const Roles = () => {
             type: "FETCH_ITEMS",
             payload: item.filter(item => item.id !== id)
         })
-    }
+    } 
 
     return (
         <div className={classes.content_wrapper}>
-            <h1>Ролі</h1>
-            <Link to="create">Додати</Link>
-            <ItemsTable currentItems={currentItems} from="roles" currentPage={currentPage} deleteItem={deleteItem} />
+            <h1>Користувачі</h1>
+            <Link to="create" state={{ from: "users" }}>Додати</Link>
+            <ItemsTable currentItems={currentItems} from="users" currentPage={currentPage} deleteItem={deleteItem} />
             <Pagination 
                 totalItems={item.length} 
                 itemsPerPage={itemsPerPage}  
                 currentPage={currentPage} 
             />
         </div>
-    );
+    )
 }
 
-export default Roles;
+export default Users
