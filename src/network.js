@@ -1,5 +1,6 @@
 const NET = {
-    APP_URL: 'http://192.168.0.102:8000/api'
+    APP_URL: 'http://localhost:8000/api',
+    AXIOS_URL: 'http://localhost:8000'
 }
 
 export default NET

@@ -4,7 +4,7 @@ import { useSearchParams, Link } from "react-router-dom"
 import itemsFetch from "../../../actions/ItemsFetch"
 import ItemsTable from "../modules/itemsTable/ItemsTable"
 import Pagination from "../../../modules/Pagination/Pagination"
-import classes from "../admin.scss"
+import classes from "../admin.module.scss"
 
 const Users = () => {
     const {stateData, dispatchData} = useContext(ContextData)

@@ -5,12 +5,12 @@ import Control from "../../modules/Navigation/Control";
 
 const Books = () => {
     return (
-        <div id={classes.container}>
-            <div className={classes.header}>
+        <div className={classes.container}>
+            <div className={classes.container__header}>
                 <Navbar />
                 <Control />
             </div>
-            <div className={classes.content}>Content</div>
+            <div className={classes.container__content}>Content</div>
         </div>
     );
 }

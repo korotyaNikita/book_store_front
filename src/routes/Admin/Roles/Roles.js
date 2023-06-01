@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import ContextData from "../../../context/Data/ContextData";
 import { Link, useSearchParams } from "react-router-dom";
-import classes from "../admin.scss"
+import classes from "../admin.module.scss"
 import Pagination from "../../../modules/Pagination/Pagination";
 import itemsFetch from './../../../actions/ItemsFetch';
 import ItemsTable from "../modules/itemsTable/ItemsTable";

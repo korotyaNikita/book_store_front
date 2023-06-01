@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import classes from "./../../admin.scss"
+import classes from "./../../admin.module.scss"
 import ContextData from "../../../../context/Data/ContextData";
 import { useParams, Link } from "react-router-dom";
 import itemsFetch from './../../../../actions/ItemsFetch';

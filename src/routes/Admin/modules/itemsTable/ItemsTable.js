@@ -1,12 +1,12 @@
 import React from "react"
 import { Link, useNavigate } from "react-router-dom"
-import itemsSubmit from "../../../../actions/itemsSubmit"
+import itemsDelete from "../../../../actions/itemsDelete"
 
 const ItemsTable = ({currentItems, from, currentPage, deleteItem}) => {
     const navigate = useNavigate()
 
     const submitRoles = (id) => {
-        itemsSubmit(`/admin/${from}/${id}`, id, 'DELETE', navigate, `/admin/${from}?page=${currentPage}`)
+        itemsDelete(`/admin/${from}/${id}`, id, navigate, `/admin/${from}?page=${currentPage}`)
         deleteItem(id)
     }
 

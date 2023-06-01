@@ -1,9 +1,9 @@
 import React from "react"
-import classes from "./../../admin.scss"
+import classes from "./../../admin.module.scss"
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import ItemInput from "../../modules/itemInput/ItemInput";
-import itemsSubmit from "../../../../actions/itemsSubmit";
+import ItemInput from "../../../../modules/itemInput/ItemInput";
+import itemsPost from "../../../../actions/itemsPost";
 
 const RolesCreate = () => {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ const RolesCreate = () => {
     }
 
     const submitRoles = () => {
-        itemsSubmit('/admin/roles', data, 'POST', navigate, '/admin/roles')
+        itemsPost('/admin/roles', data, navigate, '/admin/roles')
     }
 
     const setInputValue = (newInputValue) => {

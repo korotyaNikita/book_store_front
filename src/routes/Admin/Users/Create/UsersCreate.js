@@ -1,9 +1,9 @@
 import React from "react"
-import classes from "./../../admin.scss"
+import classes from "./../../admin.module.scss"
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import ItemInput from "../../modules/itemInput/ItemInput";
-import itemsSubmit from "../../../../actions/itemsSubmit";
+import ItemInput from "../../../../modules/itemInput/ItemInput";
+import itemsPost from "../../../../actions/itemsPost";
 import ItemSelect from "../../modules/itemSelect/itemSelect";
 
 const UsersCreate = () => {
@@ -14,7 +14,7 @@ const UsersCreate = () => {
     const [roleId, dispatchRoleId] = useState(1)
 
     const submitRoles = () => {
-        itemsSubmit('/admin/users', data, 'POST', navigate, '/admin/users')
+        itemsPost('/admin/users', data, navigate, '/admin/users')
     }
 
     const data = {

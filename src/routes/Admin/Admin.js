@@ -7,12 +7,12 @@ import { Outlet } from "react-router-dom";
 
 const Admin = () => {
     return (
-        <div id={classes.container}>
-            <div className={classes.header}>
+        <div className={classes.container}>
+            <div className={classes.container__header}>
                 <Navbar />
                 <Control />
             </div>
-            <div className={classes.content}>
+            <div className={classes.container__content}>
                 <AdminNavbar />
                 <Outlet />
             </div>

@@ -17,6 +17,10 @@ import Users from './routes/Admin/Users/Users';
 import UsersShow from './routes/Admin/Users/Show/UsersShow';
 import UsersCreate from './routes/Admin/Users/Create/UsersCreate';
 import UsersEdit from './routes/Admin/Users/Edit/UsersEdit';
+import Login from './routes/Auth/Login/Login';
+import Registration from './routes/Auth/Registration/Registration';
+import GuestLayout from './layouts/GuestLayot';
+import AdminLayout from './layouts/AdminLayot';
 
 function App() {  
   const [stateData, dispatchData] = React.useReducer(ReducerData, StateData)
@@ -27,15 +31,21 @@ function App() {
             <Route path='/books' element={<Books />} />
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/library' element={<Library />} />
-            <Route path='/admin' element={<Admin />}>
-              <Route path='roles' element={<Roles />} />
-              <Route path='roles/create' element={<RolesCreate />} />
-              <Route path='roles/:id' element={<RolesShow />} />
-              <Route path='roles/:id/edit' element={<RolesEdit />} />
-              <Route path='users' element={<Users />} />
-              <Route path='users/create' element={<UsersCreate />} />
-              <Route path='users/:id' element={<UsersShow />} />
-              <Route path='users/:id/edit' element={<UsersEdit />} />
+            <Route element={<AdminLayout />}>
+              <Route path='/admin' element={<Admin />}>
+                <Route path='roles' element={<Roles />} />
+                <Route path='roles/create' element={<RolesCreate />} />
+                <Route path='roles/:id' element={<RolesShow />} />
+                <Route path='roles/:id/edit' element={<RolesEdit />} />
+                <Route path='users' element={<Users />} />
+                <Route path='users/create' element={<UsersCreate />} />
+                <Route path='users/:id' element={<UsersShow />} />
+                <Route path='users/:id/edit' element={<UsersEdit />} />
+              </Route>
+            </Route>
+            <Route element={<GuestLayout />}>
+              <Route path='/login' element={<Login />} />
+              <Route path='/registration' element={<Registration />} />
             </Route>
         </Routes>
       </ContextData.Provider>

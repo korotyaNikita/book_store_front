@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import { useState } from "react"
-import ItemInput from "../../modules/itemInput/ItemInput";
-import itemsSubmit from "../../../../actions/itemsSubmit";
+import ItemInput from "../../../../modules/itemInput/ItemInput";
+import itemsPatch from './../../../../actions/itemsPatch'
 
 const RolesEdit = () => {
     const navigate = useNavigate();
@@ -14,7 +14,7 @@ const RolesEdit = () => {
     }
 
     const submitRoles = () => {
-        itemsSubmit(`/admin/roles/${params.id}`, data, 'PATCH', navigate, `/admin/roles`)
+        itemsPatch(`/admin/roles/${params.id}`, data, navigate, `/admin/roles`)
     }
 
     const setInputValue = (newInputValue) => {
