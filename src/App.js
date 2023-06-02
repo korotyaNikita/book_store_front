@@ -21,6 +21,9 @@ import Login from './routes/Auth/Login/Login';
 import Registration from './routes/Auth/Registration/Registration';
 import GuestLayout from './layouts/GuestLayot';
 import AdminLayout from './layouts/AdminLayot';
+import AuthLayot from './layouts/AuthLayot';
+import Profile from './routes/Profile/Profile';
+import ProfileEdit from './routes/Profile/Edit/ProfileEdit';
 
 function App() {  
   const [stateData, dispatchData] = React.useReducer(ReducerData, StateData)
@@ -46,6 +49,12 @@ function App() {
             <Route element={<GuestLayout />}>
               <Route path='/login' element={<Login />} />
               <Route path='/registration' element={<Registration />} />
+            </Route>
+            <Route element={<AuthLayot />}>
+              <Route path='/profile' element={<Profile />} >
+                <Route path='me' />
+              </Route>
+              <Route path='/profile/edit' element={<ProfileEdit />} />
             </Route>
         </Routes>
       </ContextData.Provider>

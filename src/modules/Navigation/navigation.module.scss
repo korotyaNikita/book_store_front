@@ -3,7 +3,6 @@
 
 .nav {
     list-style-type: none;
-    list-style-type: none;
     margin: 0;
     width: 80%;
     padding: 15px;
@@ -58,9 +57,52 @@
         background: $darkColor;
         cursor: pointer;
         color: $lightColor;
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 20px;
-        letter-spacing: .1px;
+    }
+
+    &__menu_trigger img {
+        position: absolute;
+        overflow: hidden;
+        top: 5px;
+        right: 60px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        background: $darkColor;
+        color: $lightColor;
+    }
+
+    &__dropdown_menu {
+        position: absolute;
+        top: 50px;
+        right: 15px;
+        background-color: #fff;
+        color: $darkColor;
+    }
+
+    &__dropdown_menu::before {
+        content: '';
+        position: absolute;
+        transform: rotate(45deg);
+    }
+
+    &__dropdown_menu.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: var(500ms) ease;
+        color: $lightColor;
+    }
+
+    &__dropdown_menu.inactive {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20);
+        transition: var(500ms) ease;
+    }
+
+    &__dropdown_item {
+        display: flex;
+        margin: 10px auto;
     }
 }
