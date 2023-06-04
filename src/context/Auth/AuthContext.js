@@ -12,9 +12,7 @@ export const AuthProvider = ({ children }) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (!user) {
-            getUser()
-        }
+        getUser()
     }, [])
 
     const getUser = async () => {

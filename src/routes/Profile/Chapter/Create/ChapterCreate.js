@@ -15,15 +15,14 @@ const ChapterCreate = () => {
     const params = useParams()
     const navigate = useNavigate()
 
-    const submitHandler = (e) => {
-        e.preventDefault()
+    const submitHandler = (event) => {
+        event.preventDefault()
         setContent(editorRef.current.getContent())
         const data = new FormData()
         data.append('title', title)
         data.append('text', content)
         data.append('book_id', params.id)
         data.get("text") !== "" && itemsPost('/profile/chapters', data, navigate, '/profile/chapters')
-        console.log(data)
     }
 
     return (

@@ -53,12 +53,12 @@ const Books = () => {
                             )
                         })
                     }
+                    <Pagination 
+                        totalItems={books.length !== 0 ? books.data.length : 0 } 
+                        itemsPerPage={itemsPerPage}
+                        currentPage={currentPage}
+                        />
                 </div>
-                <Pagination 
-                    totalItems={books.length !== 0 ? books.data.length : 0 } 
-                    itemsPerPage={itemsPerPage}
-                    currentPage={currentPage}
-                    />
             </div>
         </div>
     );

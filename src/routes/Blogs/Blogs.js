@@ -11,7 +11,11 @@ const Blogs = () => {
                 <Navbar />
                 <Control />
             </div>
-            <div className={classes.container__content}>Content</div>
+            <div className={classes.container__content}>
+                <div className={classes.content_wrapper}>
+                    <button>Опублікувати блог</button>
+                </div>
+            </div>
         </div>
     );
 }

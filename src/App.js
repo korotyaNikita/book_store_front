@@ -33,6 +33,7 @@ import BooksCreate from './routes/Profile/Books/Create/BooksCreate';
 import ChapterCreate from './routes/Profile/Chapter/Create/ChapterCreate';
 import BooksShow from './routes/Books/Show/BooksShow';
 import Reader from './routes/Books/Reader/Reader';
+import BlogsCreate from './routes/Blogs/Create/BlogsCreate';
 
 function App() {  
   const [stateData, dispatchData] = React.useReducer(ReducerData, StateData)
@@ -44,7 +45,6 @@ function App() {
             <Route path='/books/:id' element={<BooksShow />} />
             <Route path='/books/:id/reader' element={<Reader />} />
             <Route path='/blogs' element={<Blogs />} />
-            <Route path='/library' element={<Library />} />
             <Route element={<AdminLayout />}>
               <Route path='/admin' element={<Admin />}>
                 <Route path='roles' element={<Roles />} />
@@ -66,9 +66,11 @@ function App() {
               <Route path='/registration' element={<Registration />} />
             </Route>
             <Route element={<AuthLayot />}>
+              <Route path='/profile/blogs/create' element={<BlogsCreate />} />
               <Route path='/profile' element={<Profile />} >
                 <Route path='me' />
               </Route>
+              <Route path='/library/:id' element={<Library />} />
               <Route path='/profile/edit' element={<ProfileEdit />} />
               <Route path='/profile/books' element={<ProfileBooks />} />
               <Route path='/profile/books/create' element={<BooksCreate />} />

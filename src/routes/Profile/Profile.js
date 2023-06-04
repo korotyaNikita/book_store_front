@@ -17,12 +17,14 @@ const Profile = () => {
                 <Control />
             </div>
             <div className={classes.container__content}>
-                <img src={portrait} className={classes.container__content__img}></img>
-                <h1>{user?.title}</h1>
-                <div className={classes.container__content__bg}>
-                    <img src={background}></img>
+                    <div className={classes.container__content__bg}>
+                        <img src={background}></img>
+                    </div>
+                    <img src={portrait} className={classes.container__content__img}></img>
+                <div className={classes.content_wrapper}>
+                    <h1>{user?.title}</h1>
+                    <ProfileNavigation />
                 </div>
-                <ProfileNavigation />
             </div>
         </div>
     )
