@@ -16,6 +16,7 @@
     & a {
         color: $lightColor;
         text-decoration: none;
+        cursor: pointer;
         padding: 14px;
         &:hover {
           background-color: $darkColor;

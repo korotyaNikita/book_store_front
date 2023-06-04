@@ -2,7 +2,7 @@ import React from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { useState } from "react"
 import ItemInput from "../../../../modules/itemInput/ItemInput"
-import ItemSelect from "../../modules/itemSelect/itemSelect"
+import ItemSelect from "../../../../modules/itemSelect/itemSelect"
 import itemsPatch from './../../../../actions/itemsPatch'
 
 const UsersEdit = () => {
@@ -26,10 +26,10 @@ const UsersEdit = () => {
 
     return (
         <div>
-            <ItemInput inputValue={inputTitle} setInputValue={dispatchTitle} placeholder="Введіть ім'я користувача" type="text" id="title" labelName="Ім'я користувача"/>
-            <ItemInput inputValue={inputEmail} setInputValue={dispatchEmail} placeholder="example@mail.com" type="email" id="email" labelName="E-mail"/>
-            <ItemInput inputValue={inputPassword} setInputValue={dispatchPassword} placeholder="Введіть пароль" type="password" id="password" labelName="Пароль"/>
-            <ItemSelect from="roles" setValue={dispatchRoleId} id="role" labelName="Оберіть роль"/>
+            <ItemInput inputValue={inputTitle} setInputValue={dispatchTitle} placeholder="Введіть ім'я користувача" type="text" />
+            <ItemInput inputValue={inputEmail} setInputValue={dispatchEmail} placeholder="example@mail.com" type="email" />
+            <ItemInput inputValue={inputPassword} setInputValue={dispatchPassword} placeholder="Введіть пароль" type="password" />
+            <ItemSelect url="/admin/roles" setValue={dispatchRoleId} labelName="Оберіть роль"/>
             <button onClick={submitRoles}>Підтвердити</button>
         </div>
     )

@@ -24,6 +24,15 @@ import AdminLayout from './layouts/AdminLayot';
 import AuthLayot from './layouts/AuthLayot';
 import Profile from './routes/Profile/Profile';
 import ProfileEdit from './routes/Profile/Edit/ProfileEdit';
+import Genres from './routes/Admin/Genres/Genres';
+import GenresCreate from './routes/Admin/Genres/Create/GenresCreate';
+import GenresShow from './routes/Admin/Genres/Show/GenresShow';
+import GenresEdit from './routes/Admin/Genres/Edit/GenresEdit';
+import ProfileBooks from './routes/Profile/Books/Books';
+import BooksCreate from './routes/Profile/Books/Create/BooksCreate';
+import ChapterCreate from './routes/Profile/Chapter/Create/ChapterCreate';
+import BooksShow from './routes/Books/Show/BooksShow';
+import Reader from './routes/Books/Reader/Reader';
 
 function App() {  
   const [stateData, dispatchData] = React.useReducer(ReducerData, StateData)
@@ -31,7 +40,9 @@ function App() {
       <ContextData.Provider value={{stateData, dispatchData}}>
         <Routes>
             <Route index element={<General />} />
-            <Route path='/books' element={<Books />} />
+            <Route path='/genres' element={<Books />} />
+            <Route path='/books/:id' element={<BooksShow />} />
+            <Route path='/books/:id/reader' element={<Reader />} />
             <Route path='/blogs' element={<Blogs />} />
             <Route path='/library' element={<Library />} />
             <Route element={<AdminLayout />}>
@@ -44,6 +55,10 @@ function App() {
                 <Route path='users/create' element={<UsersCreate />} />
                 <Route path='users/:id' element={<UsersShow />} />
                 <Route path='users/:id/edit' element={<UsersEdit />} />
+                <Route path='genres' element={<Genres />} />
+                <Route path='genres/create' element={<GenresCreate />} />
+                <Route path='genres/:id' element={<GenresShow />} />
+                <Route path='genres/:id/edit' element={<GenresEdit />} />
               </Route>
             </Route>
             <Route element={<GuestLayout />}>
@@ -55,6 +70,9 @@ function App() {
                 <Route path='me' />
               </Route>
               <Route path='/profile/edit' element={<ProfileEdit />} />
+              <Route path='/profile/books' element={<ProfileBooks />} />
+              <Route path='/profile/books/create' element={<BooksCreate />} />
+              <Route path='/profile/books/:id/chapter/create' element={<ChapterCreate />} />
             </Route>
         </Routes>
       </ContextData.Provider>

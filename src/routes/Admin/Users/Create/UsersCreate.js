@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ItemInput from "../../../../modules/itemInput/ItemInput";
 import itemsPost from "../../../../actions/itemsPost";
-import ItemSelect from "../../modules/itemSelect/itemSelect";
+import ItemSelect from "../../../../modules/itemSelect/itemSelect";
 
 const UsersCreate = () => {
     const navigate = useNavigate();
@@ -28,10 +28,10 @@ const UsersCreate = () => {
         <div className={classes.content_wrapper}>
             <h1>Додавання користувача</h1>
             <div>
-                <ItemInput inputValue={inputTitle} setInputValue={dispatchTitle} placeholder="Введіть ім'я користувача" type="text" id="title" labelName="Ім'я користувача"/>
-                <ItemInput inputValue={inputEmail} setInputValue={dispatchEmail} placeholder="example@mail.com" type="email" id="email" labelName="E-mail"/>
-                <ItemInput inputValue={inputPassword} setInputValue={dispatchPassword} placeholder="Введіть пароль" type="password" id="password" labelName="Пароль"/>
-                <ItemSelect from="roles" setValue={dispatchRoleId} id="role" labelName="Оберіть роль"/>
+                <ItemInput inputValue={inputTitle} setInputValue={dispatchTitle} placeholder="Введіть ім'я користувача" type="text" />
+                <ItemInput inputValue={inputEmail} setInputValue={dispatchEmail} placeholder="example@mail.com" type="email" />
+                <ItemInput inputValue={inputPassword} setInputValue={dispatchPassword} placeholder="Введіть пароль" type="password" />
+                <ItemSelect url="/admin/roles" setValue={dispatchRoleId} labelName="Оберіть роль"/>
                 <button onClick={submitRoles}>Додати</button>
             </div>
         </div>

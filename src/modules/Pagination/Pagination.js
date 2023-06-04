@@ -8,7 +8,6 @@ const Pagination = ({totalItems, itemsPerPage, currentPage}) => {
         pages.push(i)
     }
 
-    //console.log(pages)
     return (
         <div className={classes.pagination}>
             {

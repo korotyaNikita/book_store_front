@@ -31,6 +31,9 @@ const Control = () => {
                     <DropdownItem>
                         <Link to="/profile/edit">Редагувати профіль</Link>
                     </DropdownItem>
+                    <DropdownItem>
+                        <Link to="/profile/books?page=1">Опублікувати книгу</Link>
+                    </DropdownItem>
                     <li className={classes.controls__dropdown_item} onClick={logout}>
                         Вихід
                     </li>

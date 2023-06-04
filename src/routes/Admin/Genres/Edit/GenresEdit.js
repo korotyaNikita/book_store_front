@@ -2,9 +2,9 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom"
 import { useState } from "react"
 import ItemInput from "../../../../modules/itemInput/ItemInput";
-import itemsPatch from './../../../../actions/itemsPatch'
+import itemsPatch from '../../../../actions/itemsPatch'
 
-const RolesEdit = () => {
+const GenresEdit = () => {
     const navigate = useNavigate();
     const [inputValue, dispatchValue] = useState('')
     const params = useParams()
@@ -13,8 +13,8 @@ const RolesEdit = () => {
         title: inputValue
     }
 
-    const submitRoles = () => {
-        itemsPatch(`/admin/roles/${params.id}`, data, navigate, `/admin/roles`)
+    const submitGenres = () => {
+        itemsPatch(`/admin/genres/${params.id}`, data, navigate, `/admin/genres`)
     }
 
     const setInputValue = (newInputValue) => {
@@ -23,10 +23,10 @@ const RolesEdit = () => {
 
     return (
         <div>
-            <ItemInput inputValue={inputValue} setInputValue={setInputValue} placeholder="Введіть назву ролі" type="text" />
-            <button onClick={submitRoles}>Підтвердити</button>
+            <ItemInput inputValue={inputValue} setInputValue={setInputValue} placeholder="Введіть назву жанру" type="text" />
+            <button onClick={submitGenres}>Підтвердити</button>
         </div>
     )
 }
 
-export default RolesEdit
+export default GenresEdit

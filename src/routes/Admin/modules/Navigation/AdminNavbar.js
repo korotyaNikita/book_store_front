@@ -11,6 +11,9 @@ const AdminNavbar = () => {
             <div className={classes.nav__item}>
                 <Link to="/admin/users?page=1">Користувачі</Link>
             </div>
+            <div className={classes.nav__item}>
+                <Link to="/admin/genres?page=1">Жанри</Link>
+            </div>
         </div>
         
     );

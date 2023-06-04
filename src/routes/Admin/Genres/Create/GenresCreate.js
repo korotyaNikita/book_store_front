@@ -5,7 +5,7 @@ import { useState } from "react";
 import ItemInput from "../../../../modules/itemInput/ItemInput";
 import itemsPost from "../../../../actions/itemsPost";
 
-const RolesCreate = () => {
+const GenresCreate = () => {
     const navigate = useNavigate();
     const [inputValue, dispatchValue] = useState('')
     const data = {
@@ -13,7 +13,7 @@ const RolesCreate = () => {
     }
 
     const submitRoles = () => {
-        itemsPost('/admin/roles', data, navigate, '/admin/roles')
+        itemsPost('/admin/genres', data, navigate, '/admin/genres')
     }
 
     const setInputValue = (newInputValue) => {
@@ -22,13 +22,13 @@ const RolesCreate = () => {
 
     return (
         <div className={classes.content_wrapper}>
-            <h1>Додавання ролі</h1>
+            <h1>Додавання жанру</h1>
             <div>
-                <ItemInput inputValue={inputValue} setInputValue={setInputValue} placeholder="Введіть назву ролі" type="text" />
+                <ItemInput inputValue={inputValue} setInputValue={setInputValue} placeholder="Введіть назву жанру" type="text" />
                 <button onClick={submitRoles}>Додати</button>
             </div>
         </div>
     )
 }
 
-export default RolesCreate
+export default GenresCreate
