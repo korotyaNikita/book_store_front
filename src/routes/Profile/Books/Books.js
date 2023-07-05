@@ -10,36 +10,36 @@ import Pagination from "../../../modules/Pagination/Pagination";
 
 const ProfileBooks = () => {
     const {stateData, dispatchData} = useContext(ContextData)
-    const books = stateData.item
+    const books = stateData.profileBooks
     const { user } = useAuthContext()
-    const [itemsPerPage, setItemsPerPage] = useState(8)
+    const [itemsPerPage, setItemsPerPage] = useState(4)
     const [searchParams, setSearchParams] = useSearchParams()
     const currentPage = searchParams.get("page")
     const lastItemIndex = currentPage * itemsPerPage
     const firstItemIndex = lastItemIndex - itemsPerPage
 
     useEffect(() => {
-        itemsFetch(`/profile/${user.id}/books`, dispatchData, "FETCH_ITEM")
+        itemsFetch(`/profile/${user.id}/books`, dispatchData, "FETCH_PROFILE_BOOKS")
     }, [])
 
-    const currentItems = books.length !== 0 ? books.data.slice(firstItemIndex, lastItemIndex) : []
+    const currentItems = books?.data.slice(firstItemIndex, lastItemIndex)
 
     return (
-        <div className={classes.container}>
+        books && <div className={classes.container}>
             <div className={classes.container__header}>
                 <Navbar />
                 <Control />
             </div>
-            <div className={classes.container__content}>
-                <div className={classes.content_wrapper}>
-                    <Link to="/profile/books/create">Додати книгу</Link>
+            <div className={classes.books_container__content}>
+                <Link to="/profile/books/create" className={classes.book_link}>Додати книгу</Link>
+                <div className={classes.add_books_wrapper}>
                     {   
                         books.length !== 0 && currentItems.map((elem, index) => {
                             return  (
                                 <div key={index}>
-                                    <Link>{elem.name}</Link>
-                                    <Link to={`/profile/books/${elem.id}/chapter/create`}>Додати главу</Link>
                                     <img src={elem.images[0].url}></img>
+                                    <Link className={classes.book_link}>{elem.name}</Link>
+                                    <Link to={`/profile/books/${elem.id}/chapter/create`} className={classes.book_link}>Додати главу</Link>
                                 </div>
                             )
                         })

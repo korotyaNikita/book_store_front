@@ -27,6 +27,7 @@ const Registration = () => {
                 </div>
                 <div className={classes.container__content}>
                     <div className={classes.content_wrapper}>
+                        <h1>Реєстрація</h1>
                         <ItemInput inputValue={inputTitle} setInputValue={setTitle} placeholder="Введіть Ім'я користувача" type="text" />
                         { errors.title && <span>{errors.title[0]}</span> }
                         <ItemInput inputValue={inputEmail} setInputValue={setEmail} placeholder="Введіть email" type="email" />

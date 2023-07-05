@@ -10,7 +10,7 @@ import itemsDelete from "../../actions/itemsDelete";
 
 const Library = () => {
     const {stateData, dispatchData} = useContext(ContextData)
-    const books = stateData.item
+    const books = stateData.library
     const [itemsPerPage, setItemsPerPage] = useState(8)
     const [searchParams, setSearchParams] = useSearchParams()
     const currentPage = searchParams.get("page")
@@ -20,15 +20,15 @@ const Library = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        itemsFetch(`/profile/${params.id}/library`, dispatchData, "FETCH_ITEM")
+        itemsFetch(`/profile/${params.id}/library`, dispatchData, "FETCH_LIBRARY")
     }, [])
 
-    const currentItems = books.length !== 0 ? books.data.slice(firstItemIndex, lastItemIndex) : []
+    const currentItems = books?.data.slice(firstItemIndex, lastItemIndex)
     
     const deleteItem = (id) => {
         dispatchData({
-            type: "FETCH_ITEM",
-            payload: books.data.filter(item => item.id !== id)
+            type: "FETCH_LIBRARY",
+            payload: books?.data.filter(item => item.id !== id)
         })
     }
 
@@ -38,7 +38,7 @@ const Library = () => {
     }
 
     return (
-        <div className={classes.container}>
+        books && <div className={classes.container}>
             <div className={classes.container__header}>
                 <Navbar />
                 <Control />

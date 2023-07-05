@@ -15,14 +15,16 @@ const Navbar = () => {
                 <Link to="/genres?page=1">Книги</Link>
             </div>
             <div className={classes.nav__item}>
-                <Link to="/blogs">Блоги</Link>
+                <Link to="/blogs?page=1">Блоги</Link>
             </div>
             <div className={classes.nav__item}>
                 <Link to={`/library/${user?.id}?page=1`}>Бібліотека</Link>
             </div>
-            <div className={classes.nav__item}>
-                <Link to="/admin">Панель адміна</Link>
-            </div>
+            {
+                user?.role_id === 2 && <div className={classes.nav__item}>
+                    <Link to="/admin">Панель адміна</Link>
+                </div>
+            }
         </div>
     );
 }

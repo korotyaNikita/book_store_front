@@ -1,7 +1,7 @@
 @import "./variables.module.scss";
 
 .container {
-    background: rgb(243, 238, 238);
+    //background: rgb(243, 238, 238);
     width: 100%;
     height: 100%;
     
@@ -15,6 +15,7 @@
     
     &__content {
         display: flex;
+        gap: 10px;
 
         &__bg {
             background-color: white;
@@ -60,4 +61,103 @@
         width: 160px;
         height: 200px;
     }
+}
+
+.books_wrapper {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.add_books_wrapper {
+    display: flex;
+    gap: 10px;
+    width: 50%;
+    margin-left: 400px;
+    font-size: 19px;
+
+    img {
+        width: 160px;
+        height: 200px;
+    }
+}
+
+.book_link {
+    display: block;
+    text-align: center;
+}
+
+.books_container__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.center_items {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book_item {
+    width: max-content;
+}
+
+.column_book_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item_book {
+    display: flex;
+    gap: 10px;
+}
+
+.input_select {
+    display: flex;
+    width: 100%;
+    padding-top: 30px;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    input {
+        width: 30%;
+    }
+}
+
+.images_and_likes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.like_item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    button {
+        display: block;
+        width: 30px;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.col_likes {
+    display: flex;
+    gap: 5px;
+}
+
+.book_and_desription {
+    display: flex;
+    gap: 5px;
+    padding-top: 30px;
 }

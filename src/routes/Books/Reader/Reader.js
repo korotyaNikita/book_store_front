@@ -10,7 +10,7 @@ import Pagination from "../../../modules/Pagination/Pagination";
 
 const Reader = () => {
     const { stateData, dispatchData } = useContext(ContextData)
-    const content = stateData.item
+    const content = stateData.chapter
     const params = useParams()
     const [itemsPerPage, setItemsPerPage] = useState(10000)
     const [searchParams, setSearchParams] = useSearchParams()
@@ -20,7 +20,7 @@ const Reader = () => {
     const [index, setIndex] = useState(1)
 
     useEffect(() => {
-        itemsFetch(`/books/${params.id}/reader`, dispatchData, 'FETCH_ITEM')
+        itemsFetch(`/books/${params.id}/reader`, dispatchData, 'FETCH_CHAPTER')
     }, [])
 
     return (
@@ -29,7 +29,8 @@ const Reader = () => {
                 <Navbar />
                 <Control />
             </div>
-            <div className={classes.container__content}>
+            {
+            content && <div className={classes.container__content}>
                 <div className={classes.content_wrapper} >
                     <select onChange={(e) => setIndex(e.target.selectedIndex)} >
                     <option disabled >Глави</option>
@@ -55,6 +56,7 @@ const Reader = () => {
                     />
                 </div>
             </div>
+            }
         </div>
     )
 };

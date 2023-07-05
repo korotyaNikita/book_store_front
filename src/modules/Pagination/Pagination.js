@@ -17,7 +17,7 @@ const Pagination = ({totalItems, itemsPerPage, currentPage}) => {
                         return <Link 
                                     to={`?page=${page}`} 
                                     key={index} 
-                                    style={{color: page === Number(currentPage) ? '#ffe400' : '#0a0a0a'}}
+                                    style={{color: page === Number(currentPage) ? '#b96d2c' : '#0a0a0a'}}
                                 >
                                     {page}
                                 </Link>

@@ -7,13 +7,14 @@ import itemsFetch from "../../actions/ItemsFetch";
 import ContextData from "../../context/Data/ContextData";
 import { useSearchParams, Link } from "react-router-dom";
 import Pagination from "../../modules/Pagination/Pagination";
+import ItemInput from "../../modules/itemInput/ItemInput";
 
 const Books = () => {
     const [genreId, setGenreId] = useState(1)
     const itemSelect = useMemo( () => <ItemSelect url='/genres' setValue={setGenreId} labelName='Оберіть жанр'/>, [] )
     const {stateData, dispatchData} = useContext(ContextData)
-    const books = stateData.item
-    const [itemsPerPage, setItemsPerPage] = useState(8)
+    const books = stateData.books
+    const [itemsPerPage, setItemsPerPage] = useState(4)
     const [searchParams, setSearchParams] = useSearchParams()
     const currentPage = searchParams.get("page")
     const lastItemIndex = currentPage * itemsPerPage
@@ -25,11 +26,11 @@ const Books = () => {
     
     
     useEffect(() => {
-        itemsFetch('/books', dispatchData, "FETCH_ITEM")
+        itemsFetch('/books', dispatchData, "FETCH_BOOKS")
     }, [])
 
     
-    const currentItems = books.length !== 0 ? books.data.slice(firstItemIndex, lastItemIndex) : [] 
+    const currentItems = books?.data.slice(firstItemIndex, lastItemIndex) 
     
     
     return (
@@ -39,26 +40,35 @@ const Books = () => {
                 <Control />
             </div>
             <div className={classes.container__content}>
-                <div className={classes.content_wrapper}>
-                    {itemSelect}
-                    {   
-                        books.length !== 0 && currentItems.map((elem, index) => {
-                            return  (
-                                <div key={index}>
-                                    <Link to={`/books/${elem.id}`}>{elem.name}</Link>
-                                    <div>{elem.annotation}</div>
-                                    <div>{elem.author.title}</div>
-                                    <img src={elem.images[0].url}></img>
-                                </div>
-                            )
-                        })
-                    }
+                {
+                books && <div className={classes.content_wrapper}>
+                    <div className={classes.input_select}>
+                        <input placeholder="Пошук"></input>
+                        {itemSelect}
+                    </div>
+                    <div className={classes.column_book_wrapper}>
+                        {   
+                            currentItems.map((elem, index) => {
+                                return  (
+                                    <div key={index} className={classes.item_book}>
+                                        <img src={elem.images[0].url}></img>
+                                        <div className={classes.book_description}>
+                                            <Link to={`/books/${elem.id}`} className={classes.book_item}>{elem.name}</Link>
+                                            <div className={classes.book_item}>{elem.annotation}</div>
+                                            <div className={classes.book_item}>{elem.author.title}</div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                     <Pagination 
-                        totalItems={books.length !== 0 ? books.data.length : 0 } 
+                        totalItems={books?.length !== 0 ? books?.data.length : 0 } 
                         itemsPerPage={itemsPerPage}
                         currentPage={currentPage}
                         />
                 </div>
+                }
             </div>
         </div>
     );

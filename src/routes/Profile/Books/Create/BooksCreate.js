@@ -22,14 +22,15 @@ const BooksCreate = () => {
         }
     }
 
-    const submitBook = () => {
+    const submitBook = (event) => {
+        event.preventDefault()
         const data = new FormData();
         data.append('name', title)
         data.append('annotation', annotation)
         data.append('book_genre_id', genreId)
         data.append('author_id', user.id)
         data.append('cover', file)
-        itemsPost('/books', data, navigate, '/profile/books')
+        itemsPost('/books', data, navigate, '/books')
     }
 
     return (
@@ -40,10 +41,11 @@ const BooksCreate = () => {
             </div>
             <div className={classes.container__content}>
                 <div className={classes.content_wrapper}>
+                    <h1>Додати книгу</h1>
                     <ItemInput inputValue={title} setInputValue={setTitle} placeholder='Введіть назву книги' type="text" />
                     <input type="file" onChange={handleFileChange}></input>
                     <ItemSelect url='/genres' setValue={setGenreId} labelName='Оберіть жанр'/>
-                    <textarea value={annotation} onInput={(e) => setAnnotation(e.target.value)}>
+                    <textarea value={annotation} onInput={(e) => setAnnotation(e.target.value)} rows="10" cols="100">
 
                     </textarea>
                     <button onClick={submitBook}>Зберегти</button>

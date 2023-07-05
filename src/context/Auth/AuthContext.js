@@ -8,6 +8,7 @@ const AuthContext = createContext({})
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [errors, setErrors] = useState([])
+    const [isLogout, setLogout] = useState(true)
     const csrf = () => http.get('/sanctum/csrf-cookie')
     const navigate = useNavigate()
 
@@ -28,6 +29,7 @@ export const AuthProvider = ({ children }) => {
         await csrf()
         try {
             setErrors([])
+            setLogout(false)
             await http.post('/api/login', data)
             await getUser()
             navigate('/')
@@ -62,6 +64,7 @@ export const AuthProvider = ({ children }) => {
 
     const logout = () => {
         http.post("/api/logout").then(() => {
+            setLogout(true)
             setUser(null)
         })
     }

@@ -12,8 +12,9 @@ const ItemSelect = ({url, setValue, labelName}) => {
     }, [])
 
     return (
-        <>
-            <select onChange={(e) => setValue(e.target.options[e.target.selectedIndex].value)} defaultValue={1}>
+         <>
+         {
+            roles && <select onChange={(e) => setValue(e.target.options[e.target.selectedIndex].value)} defaultValue={1}>
                 <option disabled value={1}>{labelName}</option>
                 {
                     roles.map((elem, index) => {
@@ -22,7 +23,8 @@ const ItemSelect = ({url, setValue, labelName}) => {
                         )
                     })
                 }
-            </select>  
+            </select>
+        }
         </>
     )
 };

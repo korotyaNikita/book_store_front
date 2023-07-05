@@ -32,7 +32,7 @@ const Control = () => {
                         <Link to="/profile/books?page=1">Опублікувати книгу</Link>
                     </DropdownItem>
                     <DropdownItem>
-                        <Link to="/profile/blogs/create">Опублікувати блог</Link>
+                        <Link to="/profile/blogs?page=1">Опублікувати блог</Link>
                     </DropdownItem>
                     <li className={classes.controls__dropdown_item} onClick={logout}>
                         Вихід

@@ -25,6 +25,7 @@ const Login = () => {
             </div>
             <div className={classes.container__content}>
                 <div className={classes.content_wrapper}>
+                    <h1>Вхід</h1>
                     <ItemInput inputValue={inputEmail} setInputValue={setEmail} placeholder="Введіть email" type="email" />
                     { errors.email && <span>{errors.email[0]}</span> }
                     <ItemInput inputValue={inputPassword} setInputValue={setPassword} placeholder="Введіть пароль" type="password" />

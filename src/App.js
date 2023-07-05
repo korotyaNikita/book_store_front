@@ -34,17 +34,23 @@ import ChapterCreate from './routes/Profile/Chapter/Create/ChapterCreate';
 import BooksShow from './routes/Books/Show/BooksShow';
 import Reader from './routes/Books/Reader/Reader';
 import BlogsCreate from './routes/Blogs/Create/BlogsCreate';
+import BlogsEdit from './routes/Blogs/Edit/BlogsEdit';
+import BlogsShow from './routes/Profile/Blogs/BlogsShow';
+import PostShow from './routes/Blogs/Show/PostShow';
+import useAuthContext from './context/Auth/AuthContext';
 
 function App() {  
   const [stateData, dispatchData] = React.useReducer(ReducerData, StateData)
   return (
       <ContextData.Provider value={{stateData, dispatchData}}>
+        {
         <Routes>
             <Route index element={<General />} />
             <Route path='/genres' element={<Books />} />
             <Route path='/books/:id' element={<BooksShow />} />
             <Route path='/books/:id/reader' element={<Reader />} />
             <Route path='/blogs' element={<Blogs />} />
+            <Route path='/blogs/:id' element={<PostShow />} />
             <Route element={<AdminLayout />}>
               <Route path='/admin' element={<Admin />}>
                 <Route path='roles' element={<Roles />} />
@@ -67,9 +73,9 @@ function App() {
             </Route>
             <Route element={<AuthLayot />}>
               <Route path='/profile/blogs/create' element={<BlogsCreate />} />
-              <Route path='/profile' element={<Profile />} >
-                <Route path='me' />
-              </Route>
+              <Route path='/profile/blogs/:id' element={<BlogsEdit />} />
+              <Route path='/profile/blogs' element={<BlogsShow />} />
+              <Route path='/profile' element={<Profile />} />
               <Route path='/library/:id' element={<Library />} />
               <Route path='/profile/edit' element={<ProfileEdit />} />
               <Route path='/profile/books' element={<ProfileBooks />} />
@@ -77,6 +83,7 @@ function App() {
               <Route path='/profile/books/:id/chapter/create' element={<ChapterCreate />} />
             </Route>
         </Routes>
+        }
       </ContextData.Provider>
   );
 }
